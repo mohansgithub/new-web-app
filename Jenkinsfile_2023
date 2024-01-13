@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git Clone') {
+            steps {
+                git 'https://github.com/mohansgithub/BookApp.git'
+            }
+        }
+        stage('Build BookApp') {
+            steps {
+                bat 'mvn clean install'
+            }
+        }
+        stage('Test BookApp') {
+            steps {
+                echo 'Clone BookApp'
+            }
+        }
+
+    }
+}
